@@ -76,12 +76,15 @@ body {
 
 
 
-.navbar-glass{
+/* .navbar-glass{
      backdrop-filter: blur(17px) saturate(180%);
     -webkit-backdrop-filter: blur(17px) saturate(180%);
     background-color: rgba(251, 251, 251, 0.51);
-}
+} */
 
+.navbar-glass {
+  background-color: #ffffff;
+}
 
 .embla {
   overflow: hidden;
