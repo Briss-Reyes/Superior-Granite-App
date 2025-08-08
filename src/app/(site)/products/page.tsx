@@ -6,13 +6,11 @@ import ProductsOrders from "@/components/ProductsOrders";
 import ProductsPagination from "@/components/ProductsPagination";
 
 type Props = {
-  searchParams: { page?: string } | Promise<{ page?: string }>;
+  searchParams: { page?: string };
 };
 
 export default async function Products({ searchParams }: Props) {
-  // Await searchParams here to comply with Next.js requirements
-  const awaitedSearchParams = await searchParams;
-  const currentPage = parseInt(awaitedSearchParams.page ?? "1", 10);
+  const currentPage = parseInt(searchParams.page ?? "1", 10);
   const pageSize = 25;
 
   const [products, totalProducts] = await Promise.all([
