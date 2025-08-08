@@ -6,11 +6,12 @@ import ProductsOrders from "@/components/ProductsOrders";
 import ProductsPagination from "@/components/ProductsPagination";
 
 type Props = {
-  searchParams: { page?: string };
+  searchParams: Promise<{ page?: string }>;
 };
 
 export default async function Products({ searchParams }: Props) {
-  const currentPage = parseInt(searchParams.page ?? "1", 10);
+  const params = await searchParams; // ✅ Await before using properties
+  const currentPage = parseInt(params.page ?? "1", 10);
   const pageSize = 25;
 
   const [products, totalProducts] = await Promise.all([
